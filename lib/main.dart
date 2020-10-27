@@ -1,11 +1,10 @@
-import 'package:Expense_Planner/widgets/new_transactions.dart';
 import 'package:flutter/material.dart';
-//import 'dart:html';
-
 import 'package:intl/date_symbol_data_local.dart';
+
+import './widgets/new_transactions.dart';
 import './widgets/transaction_list.dart';
 import './widgets/chart.dart';
-import 'models/transaction.dart';
+import './models/transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -84,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense App'),
+        title: Text('Personal Expenses'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
@@ -92,13 +91,15 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          //Chart(_recentTransactions),
-          TransactionList(_userTransactions),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Chart(_recentTransactions),
+            TransactionList(_userTransactions),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
