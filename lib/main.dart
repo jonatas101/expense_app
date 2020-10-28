@@ -15,9 +15,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal expenses',
       theme: ThemeData(
-          primarySwatch: Colors.cyan,
-          accentColor: Colors.cyanAccent,
-          fontFamily: 'Quicksand'),
+        primarySwatch: Colors.cyan,
+        accentColor: Colors.cyanAccent,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              button: TextStyle(color: Colors.white),
+            ),
+      ),
       home: MyHomePage(),
     );
   }
